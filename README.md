@@ -5,12 +5,19 @@ LIME: Pokes the model with random variations of your input (delete some words/pi
 SHAP: Based on a math concept from game theory (Shapley values) — think of each feature as a "player" in a team, and SHAP fairly divides credit for the prediction among all of them by checking every possible combination of features being present/absent. Slower, but more consistent and theoretically guaranteed to add up correctly (all feature contributions sum exactly to the prediction).
 
 Mechanistic Interpretability
+
 Lowest Level:  Individual Neurons (36,000+ isolated numbers) - DLA
+
      ↓
+
 Structural:    Attention Heads & Full MLP Layers (144 Heads total) - Sum of Neurons for each head and layer
+
      ↓
+
 Functional:    Circuits (Graph of connected heads performing one task)
+
      ↓
+     
 Conceptual:    Sparse Autoencoder Features (Clean direction vectors)
 
 Direct logit attribution(DLA): Relies on the properts of transfoerms that the residual stream is purely additive. Every attention Head and every MLP layer reads data from here, does it own calculations and adds its results back into the stream.
